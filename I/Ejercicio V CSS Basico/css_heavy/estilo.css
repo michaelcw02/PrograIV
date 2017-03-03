@@ -1,0 +1,30 @@
+body {
+    background-image: url(background.jpg); 
+}
+h1 {
+    font-family: "Segoe script";
+    font-size: 30;
+    color: red;
+}
+.titulo {
+    font-family: "Segoe script";
+    font-size: 30;
+    color: white;
+    text-align: center;
+}
+.etiqueta {
+    font-family: "Segoe script";
+    font-size: 30;
+    color: white;
+    font-weight: bold;
+}
+#tdMasc {
+    width: 100;
+    height: 100;
+    background-image: url(male.png)
+}
+#tdFem {
+    width: 100;
+    height: 100;
+    background-image: url(female.png)
+}

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Registro de un cliente</title>
+    <link rel="stylesheet" title="pink" type="text/css" href="css_pink/estilo.css">
+	<link rel="alternate stylesheet" title="heavy" type="text/css" href="css_heavy/estilo.css">
+</head>
+<body>
+<h1>Registro</h1>
+
+<form method="POST" name="formulario" action="">
+  <table border=0 cellpadding=3 cellspacing=4 >
+       <tr><td colspan="2" class="titulo">Perfil</td></tr>
+       <tr><td class="etiqueta">Cedula</td><td><input type="text" name="cedula"></td></tr>
+	   <tr><td class="etiqueta">Nombre</td><td><input type="text" name="nombre"></td></tr>
+	   <tr><td class="etiqueta">Sexo</td>
+	       <td>
+		     <table>
+		       <tr>
+			     <td id="tdMasc"><input type="radio" name="sexo" value="M">M</td>
+				 <td id="tdFem"><input type="radio" name="sexo" value="F">F</td>
+				</tr>
+			  </table>
+			</td>
+		</tr>
+	   <tr><td class="titulo" colspan="2"><input class="titulo" type="submit" value="Registrar"></td></tr>	   
+	</table>
+</form>
+</body>
+</html>

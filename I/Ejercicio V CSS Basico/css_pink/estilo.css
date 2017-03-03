@@ -1,0 +1,25 @@
+body {
+    background-image: url(background.jpg); 
+}
+h1 {
+    color: purple;
+}
+.titulo {
+    color: red;
+    text-align: center;
+}
+.etiqueta {
+    color: blue;
+    font-size: 18;
+    font-weight: bold;
+}
+#tdMasc {
+    width: 60;
+    height: 60;
+    background-image: url(male.png)
+}
+#tdFem {
+    width: 60;
+    height: 60;
+    background-image: url(female.png)
+}
