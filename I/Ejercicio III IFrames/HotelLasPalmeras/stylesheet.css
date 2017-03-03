@@ -1,0 +1,22 @@
+	
+body {
+	background-color: #f1f1c1;
+}
+h1 {
+	color: #990033;
+}
+table {
+	width: 50%;
+}
+table, th, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+.eventosEspeciales {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 25px;
+}
+.image {
+	width: 30%;
+}

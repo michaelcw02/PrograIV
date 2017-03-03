@@ -1,0 +1,169 @@
+<html>
+    <head>
+    	<meta charset="UTF-8">
+	    <title>Registro</title>
+	    <link rel="stylesheet" href="stylesheet.css">
+    </head>
+
+	<body>
+        <center>
+            <h1>Registro</h1>
+        </center>
+
+        <form action="">
+            <table>
+                <tr class="thbgColor">
+                    <th colspan="3">
+                        Información de Perfil
+                    </th>
+                </tr>
+
+                <tr>
+                    <td rowspan="2">Nombre: </td>
+                    <td>
+                        <select name="titulo" id="tituloNombre">
+                            <option value="Sr">Sr.</option>
+                            <option value="Srta">Srta.</option>
+                            <option value="Sra">Sra.</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Apellido(s)</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Idioma</td>
+                    <td>
+                        <select name="idioma" id="idioma">
+                            <option value="spanish">Español</option>
+                            <option value="english">English</option>
+                            <option value="mandarin">Mandarin</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Sexo</td>
+                    <td>
+                        <input type="radio" name="gender" value="male">Masculino<br>
+                        <input type="radio" name="gender" value="female">Femenino<br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Cumpleaños</td>
+                    <td>
+                        <select name="DOBDay">
+                            <option> - Day - </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+
+                        <select name="DOBMonth">
+                            <option> - Month - </option>
+                            <option value="January">January</option>
+                            <option value="Febuary">Febuary</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+
+                        <br>
+
+                        Año
+                        <input type="text">
+                        (p. ej. 1978)
+                    </td>
+                </tr>
+            </table>
+            
+            <br>
+
+            <table>
+                <tr class="thbgColor">
+                    <th colspan="3">
+                        Información de la Cuenta
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>Nombre de inicio de sesión</td>
+                    <td><input type="text" name="accountName"></td>
+                    <td>(p. ej: cuenta@dominio)</td>
+                </tr>
+
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input type="text" name="accountPass"></td>
+                    <td>
+                        Debe tener <b>al menos(8) caracteres de longitud</b>, puede contener números (0-9) y letras mayúsculas y minúsculas (A-Z, a-z), pero no puede incluir <b>ningún espacio</b>. Asegúrese de que sea difícil que otros la adivinen.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Confirmación de Contraseña</td>
+                    <td><input type="text" name="accountPassConf"></td>
+                    <td>Confirme su contraseña.</td>
+                </tr>
+
+                <tr>
+                    <td>Pertenecer a</td>
+                    <td>
+                        <label><input type="checkbox" name="ckBelong">Directorio</label>
+                        <br>
+                        <label><input type="checkbox" name="ckBelong">Páginas amarillas</label>
+                    </td>
+                </tr>
+
+            </table>
+            <center>
+                <button type="submit">Registrarse</button>
+            </center>
+        </form>
+	<body>
+</html>
