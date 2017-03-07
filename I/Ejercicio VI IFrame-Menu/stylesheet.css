@@ -6,11 +6,16 @@ ul.menu li a {
     text-decoration: none;
     font-size: 150%;
     color: black;
+    display: inline-block;
+    width: 200px;
+    font-size: 30px;
+
 }
 
-li {
+ul.menu li {
     background-color: lightgreen;
+    
 }
-li:hover {
+ul.menu li:hover {
     background-color: green; 
 }
