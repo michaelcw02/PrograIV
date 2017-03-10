@@ -4,7 +4,6 @@ var previousValue = 0;
 var previousSign = "none";
 var isFirstEntry = true;
 
-
 function getCurrentValue() {
     return document.getElementById("numberDisplay").value;
 }
@@ -39,6 +38,10 @@ function addDot() {
     currentValue = getCurrentValue();
     if(!checkForDots(currentValue)) 
         addValue(currentValue + ".");
+    if(isFirstEntry) {
+        addValue("0.");
+        isFirstEntry = false;
+    }
 }
 function equal() {
     var result = 0;
@@ -47,20 +50,31 @@ function equal() {
     if(previousSign === "By")
         result = previousValue *= parseFloat(getCurrentValue());
     if(previousSign === "Minus")
-        previousValue -= parseFloat(getCurrentValue());
+        result = previousValue -= parseFloat(getCurrentValue());
     if(previousSign === "Divide")
-        previousValue /= parseFloat(getCurrentValue());
+        result = previousValue /= parseFloat(getCurrentValue());
     addValue(result);
+    previousSign = "none";
+    previousValue = 0;
+    isFirstEntry = true;
 }
 function resolve() {
     addValue(previousValue);
 
 }
+function setPreviousNumber() {
+    previousValue = parseFloat(getCurrentValue());
+    isFirstEntry = true;
+}
 function setPreviousSign(sign) {
-    if(sign === "Dot" || sign === "CE" || sign === "C" || sign === "Equal")
-        sign = "none";
-    else
-        isFirstEntry = true;
+    if(sign === "Dot" || sign === "CE" || sign === "C" || sign === "Equal") {
+        if(previousSign !== "none")
+            sign = previousSign;
+        else
+            sign = "none";
+    }        
+    else 
+        setPreviousNumber();
     previousSign = sign;
 }
 function clear() {
@@ -87,8 +101,10 @@ function addSign(sign) {
         }            
     }
     if(sign === "Minus") {
-        previousValue -= parseFloat(getCurrentValue());
-        addValue(previousValue);
+        if (previousValue !== 0) {
+            previousValue -= parseFloat(getCurrentValue());
+            addValue(previousValue);
+        }        
     }
     if(sign === "Divide") {
         if (previousValue !== 0) {

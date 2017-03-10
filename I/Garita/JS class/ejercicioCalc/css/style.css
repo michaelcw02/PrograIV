@@ -25,7 +25,6 @@ td {
     width: 100%;
 }
 
-.btn-wider {
-    height: 100%;
-    width: 100%;
+.space {
+    width: 20px;
 }
