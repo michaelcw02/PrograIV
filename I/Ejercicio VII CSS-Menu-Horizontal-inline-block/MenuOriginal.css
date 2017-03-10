@@ -1,0 +1,67 @@
+   ul.Menu {
+		font-size: 0px; /* Sin espacio entre opciones */
+   }
+	ul.Menu li{ /* Establece tamaño letra */
+		font-size: 15px;
+	}
+
+	/*Estilo de las listas del menu y submenues*/
+	ul.Menu, ul.Menu li ul {
+		padding:0;
+		list-style: none;
+	}
+
+	/* Ancho del menu y del submenu */
+	ul.Menu li a, ul.Menu li ul{
+		width: 10em;
+	}
+	
+	/* Opciones (y sus bloques)  horizontalmente*/
+	ul.Menu li{	
+		display: inline-block;
+		vertical-align:top;
+	}
+
+	/*MENU NORMAL*/
+	ul.Menu li a {
+		color: black;
+		font-family: Arial, Helvetica, sans-serif;			
+		background: url("./images/menu.gif") center center repeat-x;
+		text-decoration: none;
+		padding: 2px 16px 2px 10px;
+		border: 1px solid black;
+		display: block;
+	}
+
+	/*MENU SELECCIONADO*/
+	ul.Menu li a:hover{
+		background: url(./images/menusel.gif) center center repeat-x;
+	}
+	
+	/* OCULTA SUBMENU por default */
+	ul.Menu li ul {
+		display: none;
+	}
+	
+	/*MUESTRA SUBMENU cuando el mouse esta encima del menu*/
+	ul.Menu li:hover ul{
+		display: block;
+	}
+
+	/*SUBMENU NORMAL*/
+	ul.Menu li:hover ul li a{
+		color: black;
+		background: #e3f1bd;		
+	}
+
+	/*SUMBENU SELECCIONADO*/
+	ul.Menu li:hover ul li a:hover{
+		color: red;
+		background: #cde686;
+	}
+
+	
+	
+	
+	
+	
