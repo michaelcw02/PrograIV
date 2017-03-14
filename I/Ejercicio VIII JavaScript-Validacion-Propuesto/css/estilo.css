@@ -1,7 +1,9 @@
 body {
 	background-image: url(background.jpg);
 }
-h1 { color:purple;}
+h1 { 
+	color:purple;
+}
 
 .etiqueta {
 	color: blue;
@@ -24,6 +26,10 @@ h1 { color:purple;}
 	vertical-align: bottom;
 	background-image:url(female.png);
 	background-repeat: no-repeat;
+}
+.ponerRojito {
+	border: 2px solid #dadada;
+    border-radius: 7px
 }
 
 input[type="text"].focus {background-color:pink;}
