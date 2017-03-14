@@ -19,7 +19,7 @@ function doBlur(event){
 }
 
 function submit(event) {
-    window.alert("is it here>")
+    validaCampos(event);
 
 }
 
@@ -28,7 +28,15 @@ function validaCampos(event) {
     var nom = document.getElementById("nombre");
     var radios = document.getElementsByName("sexo");
 
-  
+    if(!isCedFilled(ced)) {
+        ced.setAttribute("class", ".error");
+    }
+    if(!isNomFilled(nom)) {
+        nom.setAttribute("class", ".error");
+    }
+    if(!isRadioChecked(radios)) {
+        radios.setAttribute("class", ".error");
+    }
 }
 
 function isRadioChecked(radios) {
