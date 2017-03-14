@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Registro de un cliente</title>
+    <link rel="stylesheet" title="pink" type="text/css" href="css/estilo.css">
+</head>
+<body>
+<h1>Registro</h1>
+
+<form method="POST" name="formulario" id="formulario" action="">
+  <table border=0 cellpadding=3 cellspacing=4 >
+       <tr><td colspan="2" class="titulo">Perfil</td></tr>
+       <tr><td class="etiqueta">Cedula</td><td><input type="text" name="cedula" id="cedula" ></td></tr>
+	   <tr><td class="etiqueta">Nombre</td><td><input type="text" name="nombre" id="nombre" ></td></tr>
+	   <tr><td class="etiqueta">Sexo</td>
+	       <td>
+		     <table>
+		       <tr>
+			     <td id="tdMasc"><input type="radio" name="sexo" value="M" id="sexoMasc"></>M</td>
+				 <td id="tdFem"><input type="radio" name="sexo" value="F" id="sexoFem">F</td>
+				</tr>
+			  </table>
+			</td>
+		</tr>
+	   <tr><td class="titulo" colspan="2"><input class="titulo" type="submit" value="Registrar"></td></tr>	   
+	</table>
+</form>
+</body>
+<script>
+  function pageLoad(event){
+    var cedula=document.getElementById("cedula"); 
+    var nombre=document.getElementById("nombre");	
+	cedula.addEventListener("focus",doFocus);
+    cedula.addEventListener("blur",doBlur); 
+	nombre.addEventListener("focus",doFocus);
+    nombre.addEventListener("blur",doBlur);  	
+  }
+  function doFocus(event){
+    event.target.className="focus";
+  }
+  function doBlur(event){
+    event.target.className="nofocus";
+  }
+  document.addEventListener("DOMContentLoaded",pageLoad)
+</script>
+</html>
