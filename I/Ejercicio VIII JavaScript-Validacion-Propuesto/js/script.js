@@ -55,3 +55,7 @@ function isNomFilled(nom) {
         return false;
     return true;
 }
+
+function enviar() {
+    
+}
