@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>EJERCICIO_1</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -28,16 +28,34 @@ and open the template in the editor.
             $(document).ready(function(){
                 $("#birthdate").datepicker();
 
-                $("#add").click(function(){
-                    $("#added-things").add("HELLO");
+                $("#show").attr("disabled", true);
+                $("#show").click(function(){
+                    $("#form").show();
+                    $("#show").attr("disabled", true);
+                    $("#hide").attr("disabled", false);
                 });
+
+                $("#hide").click(function(){
+                    $("#form").hide();
+                    $("#show").attr("disabled", false);
+                    $("#hide").attr("disabled", true);
+                });
+
+                $( "#animate" ).click(function() {
+                $( "#body" ).animate({
+                    color: "green",
+                    backgroundColor: "rgb( 20, 20, 20 )"
+                });
+                });
+
+
             });
         </script>
         
         
         
     </head>
-    <body>
+    <body id="body">
 
 
         <nav class="navbar navbar-default">
@@ -54,14 +72,14 @@ and open the template in the editor.
         </div>
         </nav>
 
-        <div class="container center-div">
+        <div class="container center-div" id="container">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-primary text-center">Ejercicio 1</h1>
                 </div>
             </div>
             <br>
-            <form class="form-horizontal" action="#">
+            <form class="form-horizontal" id="form" action="#">
 
                 <div class="form-group">
                     <label class="col-md-offset-4 col-md-2 text-center" for="name">Name:</label>
@@ -93,12 +111,15 @@ and open the template in the editor.
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-info" id="add">Add Something</button>
+                    <button type="button" class="btn btn-danger" id="hide">HIDE</button>
+                    <button type="button" class="btn btn-warning" id="show">SHOW</button>
                 </div>
             </div>
-
-            <div class="row added-things">
-                
+            <br>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-success" id="animate">ANIMATE</button>
+                </div>
             </div>
 
 
