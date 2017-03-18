@@ -1,5 +1,5 @@
 body {
-	background-image: url(background.jpg);
+	background-image: url(../images/background.jpg);
 }
 h1 { color:purple;}
 
@@ -15,14 +15,14 @@ h1 { color:purple;}
 #tdMasc {
 	width: 70px; height:70px;
 	vertical-align: bottom;
-	background-image:url(male.png);
+	background-image:url(../images/male.png);
 	background-repeat: no-repeat;	
 }
 
 #tdFem {
 	width: 70px; height:70px;
 	vertical-align: bottom;
-	background-image:url(female.png);
+	background-image:url(../images/female.png);
 	background-repeat: no-repeat;
 }
 
