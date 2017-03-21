@@ -98,7 +98,7 @@ var personas;
 		break;
 	  case "F":
 		img.src="images/female.png";
-		break;		
+		break;
 	}
 	img.width="30";
 	img.height="30";
