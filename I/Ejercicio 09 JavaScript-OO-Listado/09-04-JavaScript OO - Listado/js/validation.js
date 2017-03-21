@@ -10,6 +10,7 @@ var personas;
     var formulario=document.getElementById("formulario");
     formulario.addEventListener("submit",doValidate);
     var buscar = document.getElementById("find");
+    buscar.addEventListener("click", doFind);
 	personas = Storage.retrieve("personas");
     if (personas == null){
 		personas=[];
@@ -57,6 +58,13 @@ var personas;
 	}
 	
 	if (error){event.preventDefault();}
+  }
+  function doFind(event) {
+      var nameToFind = document.getElementById("inputBusqueda").value;
+      listPersonas(filterName(nameToFind));
+  }
+  function filterName(name) {
+      return personas.filter( (per) => per.nombre.toLowerCase().indexOf(name.toLowerCase()) > -1 );
   }
   function doSubmit(){
     var cedula=document.getElementById("cedula"); 
