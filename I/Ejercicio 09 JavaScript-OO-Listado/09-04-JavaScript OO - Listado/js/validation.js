@@ -9,6 +9,7 @@ var personas;
     nombre.addEventListener("blur",doBlur); 
     var formulario=document.getElementById("formulario");
     formulario.addEventListener("submit",doValidate);
+    var buscar = document.getElementById("find");
 	personas = Storage.retrieve("personas");
     if (personas == null){
 		personas=[];
