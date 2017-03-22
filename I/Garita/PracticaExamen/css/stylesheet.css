@@ -1,0 +1,48 @@
+body, #title {
+    font-family: 'Roboto', sans-serif;
+}
+
+div img {
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+    border: 2px solid white;
+    box-shadow: 8px 8px 5px grey;
+}
+
+.marcador {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+}
+
+.field {
+    width: 630px;
+    height: 400px;
+    background-color: #558B2F;
+    border-radius: 22px;
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    box-shadow: 8px 8px 5px grey;
+    border: 8px solid white;
+    float: center;
+}
+
+.leftGoal {
+    width: 125px;
+    height: 250px;
+    background-color: #558B2F;
+    border: 8px solid white;
+    margin-left: -20px;
+    margin-top: 70px;
+    margin-right: 500px;
+    float: left;
+}
+
+.rightGoal {
+    width: 125px;
+    height: 250px;
+    background-color: #558B2F;
+    border: 8px solid white;
+    margin-left: 482px;
+    margin-top: 70px;
+}
