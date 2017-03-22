@@ -16,6 +16,11 @@ div img {
 }
 
 .field {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     width: 630px;
     height: 400px;
     background-color: #558B2F;
@@ -37,6 +42,18 @@ div img {
     margin-right: 500px;
     float: left;
 }
+.leftHalfCircle, 
+.rightHalfCircle {
+    height: 90px;
+    width: 45px;
+    background-color: #558B2F;
+    border: 8px solid white;
+}
+
+.leftHalfCircle {
+    border-bottom-right-radius: 90px;
+    border-top-right-radius: 90px;
+}
 
 .rightGoal {
     width: 125px;
@@ -45,4 +62,9 @@ div img {
     border: 8px solid white;
     margin-left: 482px;
     margin-top: 70px;
+}
+
+.rightHalfCircle {
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
 }
