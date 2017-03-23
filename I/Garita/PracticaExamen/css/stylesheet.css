@@ -32,19 +32,32 @@ div img {
     float: center;
 }
 
-.leftGoal {
+.leftGoal, 
+.rightGoal {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
     width: 125px;
-    height: 250px;
+    height: 240px;
     background-color: #558B2F;
     border: 8px solid white;
+}
+
+.leftGoal {
     margin-left: -20px;
-    margin-top: 70px;
     margin-right: 500px;
     float: left;
 }
 .leftHalfCircle, 
 .rightHalfCircle {
-    height: 90px;
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+    height: 92px;
     width: 45px;
     background-color: #558B2F;
     border: 8px solid white;
@@ -53,18 +66,41 @@ div img {
 .leftHalfCircle {
     border-bottom-right-radius: 90px;
     border-top-right-radius: 90px;
+    margin-left: 109px;
 }
 
 .rightGoal {
-    width: 125px;
-    height: 250px;
-    background-color: #558B2F;
-    border: 8px solid white;
     margin-left: 482px;
-    margin-top: 70px;
 }
 
 .rightHalfCircle {
     border-bottom-left-radius: 90px;
     border-top-left-radius: 90px;
+    margin-right: 109px;
+    margin-left: -45px;
+}
+
+.centerLine {
+    width: 8px;
+    background-color: white;
+    height: 390px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.centerCircle {
+    border: 8px solid white;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    z-index: 50;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
