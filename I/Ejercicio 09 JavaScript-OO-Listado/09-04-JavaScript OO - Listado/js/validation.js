@@ -1,47 +1,74 @@
 var personas;
-  var persona;
-  function pageLoad(event){
-    var cedula=document.getElementById("cedula"); 
-    var nombre=document.getElementById("nombre");	
-	cedula.addEventListener("focus",doFocus);
-    cedula.addEventListener("blur",doBlur); 
-	nombre.addEventListener("focus",doFocus);
-    nombre.addEventListener("blur",doBlur); 
-    var formulario=document.getElementById("formulario");
-    formulario.addEventListener("submit",doValidate);
-    var buscar = document.getElementById("find");
-    buscar.addEventListener("click", doFind);
+var persona;
+function pageLoad(event){
+	addEventListeners();
 	personas = Storage.retrieve("personas");
-    if (personas == null){
+	if (personas == null){
 		personas=[];
 		Storage.store("personas",personas);
 	}
 	listPersonas(personas);
-  }
-  function doFocus(event){
-    event.target.classList.add("focus");
-  }
-  function doBlur(event){
-    event.target.classList.remove("focus");
-  }
-  function doValidate(event){
-    var cedula=document.getElementById("cedula"); 
-    var nombre=document.getElementById("nombre");
-    var sexoMasc=document.getElementById("sexoMasc");	
-    var sexoFem=document.getElementById("sexoFem");
-	var error=false;
-	
-	cedula.classList.remove("invalid");
-	if (cedula.value.length==0){
-		cedula.classList.add("invalid");
-		error=true;
-	}
+}
 
-	nombre.classList.remove("invalid");
-	if (nombre.value.length==0){
-		nombre.classList.add("invalid");
-		error=true;
+function addEventListeners() {
+	var cedula = document.getElementById("cedula"); 
+	var nombre = document.getElementById("nombre");	
+	var signs = document.getElementById("signs");
+	var canton = document.getElementById("canton");
+	var distrito = document.getElementById("distrito");
+	var provincia = document.getElementById("provincia");
+	
+	cedula.addEventListener("focus",doFocus);
+	cedula.addEventListener("blur",doBlur); 
+	nombre.addEventListener("focus",doFocus);
+	nombre.addEventListener("blur",doBlur); 
+	signs.addEventListener("focus",doFocus);
+	signs.addEventListener("blur",doBlur); 
+	canton.addEventListener("focus",doFocus);
+	canton.addEventListener("blur",doBlur); 
+	distrito.addEventListener("focus",doFocus);
+	distrito.addEventListener("blur",doBlur); 
+	provincia.addEventListener("focus",doFocus);
+	provincia.addEventListener("blur",doBlur); 
+
+	var formulario = document.getElementById("formulario");
+	formulario.addEventListener("submit",doValidate);
+	var buscar = document.getElementById("find");
+	buscar.addEventListener("click", doFind);
+}
+
+function doFocus(event){
+	event.target.classList.add("focus");
+}
+function doBlur(event){
+	event.target.classList.remove("focus");
+}
+
+function validateInput(element) {
+	element.classList.remove("invalid");
+	if (element.value.length==0){
+		element.classList.add("invalid");
+		return true;
 	}
+}
+
+function doValidate(event){
+	var cedula=document.getElementById("cedula"); 
+  var nombre=document.getElementById("nombre");
+  var sexoMasc=document.getElementById("sexoMasc");	
+  var sexoFem=document.getElementById("sexoFem");
+	var signs = document.getElementById("signs");
+	var canton = document.getElementById("canton");
+	var distrito = document.getElementById("distrito");
+	var provincia = document.getElementById("provincia");
+	var error = false;
+	
+	error = validateInput(cedula);
+	error = validateInput(nombre);
+	error = validateInput(signs);
+	error = validateInput(canton);
+	error = validateInput(distrito);
+	error = validateInput(provincia);
 
 	sexoMasc.classList.remove("invalid");
 	sexoFem.classList.remove("invalid");
@@ -51,14 +78,10 @@ var personas;
 		error=true;
 	}
 	
-	nombre.classList.remove("invalid");
-	if (nombre.value.length==0){
-		nombre.classList.add("invalid");
-		error=true;
+	if (error){
+		event.preventDefault();
 	}
-	
-	if (error){event.preventDefault();}
-  }
+}
   function doFind(event) {
       var nameToFind = document.getElementById("inputBusqueda").value;
       listPersonas(filterName(nameToFind));
@@ -69,17 +92,25 @@ var personas;
   function doSubmit(){
     var cedula=document.getElementById("cedula"); 
     var nombre=document.getElementById("nombre");
-    var sexoMasc=document.getElementById("sexoMasc");	
-    var sexoFem=document.getElementById("sexoFem");
-	var sexo=(sexoMasc.checked)? "M": "F";
-	persona = new Persona(cedula.value,nombre.value,sexo);
-	personas.push(persona);
-	Storage.store("personas",personas);
+    var sexoMasc=document.getElementById("sexoMasc");
+		var sexo=(sexoMasc.checked)? "M": "F";
+
+		var signs = document.getElementById("signs").value;
+		var canton = document.getElementById("canton").value;
+		var distrito = document.getElementById("distrito").value;
+		var provincia = document.getElementById("provincia").value;
+
+		var direccion = new Direccion(signs, canton, distrito, provincia);
+
+		persona = new Persona(cedula.value,nombre.value,sexo, direccion);
+		console.log(persona.direccion);
+		personas.push(persona);
+		Storage.store("personas",personas);
 	
-	var listado=document.getElementById("listado");
-	listPersona(listado,persona);
+		var listado=document.getElementById("listado");
+		listPersona(listado,persona);
 	
-	window.alert("Data sent: "+persona.completo("-"));
+		window.alert("Data sent: "+persona.completo("-"));
     var formulario=document.getElementById("formulario");
     formulario.reset();	
   }
@@ -112,6 +143,10 @@ var personas;
 	img.width="30";
 	img.height="30";
 	td.appendChild(img);
+	tr.appendChild(td);
+
+	td=document.createElement("td");
+	td.appendChild(document.createTextNode(per.direccion.canton + ", " + per.direccion.distrito + ", " + per.direccion.provincia));
 	tr.appendChild(td);
 
 	td= document.createElement("td");

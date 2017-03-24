@@ -5,6 +5,7 @@
   <title>Registro de un cliente</title>
   <link rel="stylesheet" title="pink" type="text/css" href="css/estilo.css">
   <script type="text/javascript" src="js/Persona.js"></script>
+  <script type="text/javascript" src="js/Direccion.js"></script>
   <script type="text/javascript" src="js/Storage.js"></script>
   <script type="text/javascript" src="js/validation.js"></script>
 </head>
@@ -25,6 +26,29 @@
 						</table>
 					</td>
 				</tr>
+
+				<tr>
+					<td class="etiqueta">Señas</td>
+					<td><input type="text" name="signs" id="signs"></td>
+				</tr>
+
+				<tr>
+					<td class="etiqueta">Canton</td>
+					<td><input type="text" name="canton" id="canton"></td>
+				</tr>
+
+				<tr>
+					<td class="etiqueta">Distrito</td>
+					<td><input type="text" name="distrito" id="distrito"></td>
+				</tr>
+
+				<tr>
+					<td class="etiqueta">Provincia</td>
+					<td><input type="text" name="provincia" id="provincia"></td>
+				</tr>
+
+				
+				
 				<tr><td class="titulo" colspan="2"><input class="boton" type="submit" value="Registrar"></td></tr>	   
 			</table>
 		</form>
@@ -42,9 +66,14 @@
 		</table>
 		
 		<table class="grid">
-			<thead><tr><th>Cedula</th><th>Nombre</th><th>Sexo</th><th>...</th><th>...</th></tr></thead>
+			<thead><tr><th>Cedula</th><th>Nombre</th><th>Sexo</th><th>Direccion</th><th>...</th><th>...</th></tr></thead>
 			<tbody id="listado"></tbody>
 		</table>
+
+		<div id="img">
+			<img src="#" alt="Profile Pic" id="profilePic">
+		</div>
+
 	</div>	
 	</body>
 </html>
