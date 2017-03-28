@@ -1,19 +1,27 @@
 
 function pageLoad(event) {
     addEventListeners();
+    loadSpaces();
     
 }
 
-/*  auto add
-    let a = [];
-    a.push(cedula);
-    a.push(nombre);
-    a.push(direccion);
-    a.push(canton);
-    a.push(distrito);
-    a.push(provincia);
-    for( i in a) a[i].value = "jiji";
-*/
+
+function loadSpaces() {
+    let cedula = document.getElementById("cedula");
+    let nombre = document.getElementById("nombre");
+    let dir = document.getElementById("direccion");
+    let canton = document.getElementById("canton");
+    let distrito = document.getElementById("distrito");
+    let provincia = document.getElementById("provincia");
+
+    cedula.value = "116290538";
+    nombre.value = "Michael Chen W.";
+    dir.value = "25 mts Este de la Plaza";
+    canton.value = "Barrio San Jose";
+    distrito.value = "Alajuela";
+    provincia.value = "Alajuela";
+}
+
 function addEventListeners() {
     let cedula = document.getElementById("cedula");
     let nombre = document.getElementById("nombre");
@@ -79,19 +87,18 @@ function isBlank(element) {
 }
 
 function doSubmit() {
-    let cedula = document.getElementById("cedula");
-    let nombre = document.getElementById("nombre");
-    let sexMasc = document.getElementById("sexMasc");
+    let cedula = document.getElementById("cedula").value;
+    let nombre = document.getElementById("nombre").value;
+    let sexMasc = document.getElementById("sexMasc").value;
     let sexo = (sexMasc.checked) ? "M" : "F";
-    let dir = document.getElementById("direccion");
-    let canton = document.getElementById("canton");
-    let distrito = document.getElementById("distrito");
-    let provincia = document.getElementById("provincia");
+    let dir = document.getElementById("direccion").value;
+    let canton = document.getElementById("canton").value;
+    let distrito = document.getElementById("distrito").value;
+    let provincia = document.getElementById("provincia").value;
 
-    let direccion = new Direccion(dir, canton, distrito, provincia);
-    let persona = new Persona(cedula, nombre, sexo, direccion);
-
-    
+    var direccion = new Direccion(dir, canton, distrito, provincia);
+    var persona = new Persona(cedula, nombre, sexo, direccion);
+    Storage.store("Persona", persona);
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)
