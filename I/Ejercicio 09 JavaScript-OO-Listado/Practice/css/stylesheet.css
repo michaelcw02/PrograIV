@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    background-color: #ea6153;
+    background-color: #8BC34A;
 	color: #ffffff;
     padding-bottom: 30px;
 }
@@ -13,4 +13,14 @@ body {
 }
 .btn {
     font-size: 20px;
+}
+
+.invalid {
+    box-shadow: 0 0 5px 1px #E53935;
+}
+
+input[type="text"].focus {background-color: #BBDEFB;}
+input[type="text"].nofocus {background-color: white;}
+.btn-radio:hover{
+    background-color: #BBDEFB !important;
 }
