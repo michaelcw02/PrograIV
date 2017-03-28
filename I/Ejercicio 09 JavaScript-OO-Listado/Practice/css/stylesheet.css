@@ -1,0 +1,16 @@
+body {
+    margin-top: 35px;
+}
+
+.container {
+    background-color: #ea6153;
+	color: #ffffff;
+    padding-bottom: 30px;
+}
+
+.form-group .title {
+    font-size: 25px;
+}
+.btn {
+    font-size: 20px;
+}
