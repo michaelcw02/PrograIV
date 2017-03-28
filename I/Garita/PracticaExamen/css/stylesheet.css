@@ -11,7 +11,6 @@ div img {
 }
 
 .marcador {
-    font-family: 'Roboto', sans-serif;
     font-size: 40px;
 }
 
@@ -103,4 +102,17 @@ div img {
     top: 0;
     right: 0;
     bottom: 0;
+}
+
+.below {
+    position: absolute;
+    z-index: 50;
+    background-color: red;
+    margin: auto;
+    left: 0;
+    top: 750px;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    font-weight: bold;
 }
