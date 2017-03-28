@@ -2,9 +2,8 @@ var arrayPersonas = [];
 function pageLoad(event) {
     addEventListeners();
     loadSpaces();
-    
+    loadPersonas();
 }
-
 
 function loadSpaces() {
     let cedula = document.getElementById("cedula");
@@ -86,6 +85,11 @@ function isBlank(element) {
 	}
 }
 
+function loadPersonas() {
+    var array = Storage.retrieve("Personas");
+    console.log(array);
+}
+
 function doSubmit() {
     let cedula = document.getElementById("cedula").value;
     let nombre = document.getElementById("nombre").value;
@@ -99,9 +103,10 @@ function doSubmit() {
     var direccion = new Direccion(dir, canton, distrito, provincia);
     var persona = new Persona(cedula, nombre, sexo, direccion);
     arrayPersonas.push(persona);
-    Storage.store("Persona", arrayPersonas);
+    Storage.store("Personas", arrayPersonas);
     
     document.getElementById("formulario").reset();
+    loadPersonas();
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)
