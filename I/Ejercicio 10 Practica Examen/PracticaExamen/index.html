@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Practica Examen</title>
+
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script type="text/javascript" src="js/examenes.js"></script>
+    <script type="text/javascript" src="js/estudiante.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tabla de Calculo de Notas</h1>
+        <hr>
+        <form action="javascript:doSubmit();" method="POST" id="formulario">
+            <table border=0 cellpadding=3 cellspacing=4>
+                <tr>
+                    <td colspan="4" class="etiqueta">
+                        <h3>Agregar nuevo alumno:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Carnet</td>
+                    <td><input type="text" name="carnet" id="carnet"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Apellidos</td>
+                    <td><input type="text" name="apellidos" id="apellidos"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Nombre</td>
+                    <td><input type="text" name="nombre" id="nombre"></td>
+                </tr>
+                <tr class="buttonLine">
+                    <td colspan="4">
+                        <input class="boton" type="button" value="Borrar" id="borrar">
+                        <input class="boton" type="submit" value="Agregar">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <hr>
+
+    </div>
+
+    <div class="container">
+        <table class="grid">
+            <thead>
+                <tr>
+                    <th>Carnet</th>
+                    <th>Apellidos</th>
+                    <th>Nombre</th>
+                    <th>Examen 1</th>
+                    <th>Examen 2</th>
+                    <th>Examen 3</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="listado">
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
