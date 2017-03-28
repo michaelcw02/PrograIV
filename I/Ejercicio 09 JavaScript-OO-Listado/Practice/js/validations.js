@@ -106,7 +106,6 @@ function doSubmit() {
     Storage.store("Personas", arrayPersonas);
     
     document.getElementById("formulario").reset();
-    loadPersonas();
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)
