@@ -1,4 +1,4 @@
-
+var arrayPersonas = [];
 function pageLoad(event) {
     addEventListeners();
     loadSpaces();
@@ -98,7 +98,10 @@ function doSubmit() {
 
     var direccion = new Direccion(dir, canton, distrito, provincia);
     var persona = new Persona(cedula, nombre, sexo, direccion);
-    Storage.store("Persona", persona);
+    arrayPersonas.push(persona);
+    Storage.store("Persona", arrayPersonas);
+    
+    document.getElementById("formulario").reset();
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)
