@@ -79,7 +79,19 @@ function isBlank(element) {
 }
 
 function doSubmit() {
-    alert("made a submit");
+    let cedula = document.getElementById("cedula");
+    let nombre = document.getElementById("nombre");
+    let sexMasc = document.getElementById("sexMasc");
+    let sexo = (sexMasc.checked) ? "M" : "F";
+    let dir = document.getElementById("direccion");
+    let canton = document.getElementById("canton");
+    let distrito = document.getElementById("distrito");
+    let provincia = document.getElementById("provincia");
+
+    let direccion = new Direccion(dir, canton, distrito, provincia);
+    let persona = new Persona(cedula, nombre, sexo, direccion);
+
+    
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)
