@@ -6,6 +6,7 @@ function Examenes() {
     arrayExamenes.push(0);
     arrayExamenes.push(0);
     arrayExamenes.push(0);
+    this.Examenes(arrayExamenes);
 }
 
 Examenes.prototype = {
@@ -13,8 +14,9 @@ Examenes.prototype = {
         this.arrayExamenes = arrayExamenes;
     },
     getPromedio: function() {
+        let suma = 0;
         for(var i in this.arrayExamenes)
-            suma += arrayExamenes[i];
-        return suma / arrayExamenes.length;
+            suma += this.arrayExamenes[i];
+        return suma / this.arrayExamenes.length;
     }
 }

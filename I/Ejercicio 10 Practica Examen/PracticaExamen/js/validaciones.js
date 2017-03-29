@@ -19,7 +19,7 @@ function loadSpaces() {
 }
 
 function loadList() {
-    if(arrayEstudiantes == null) {
+    if (arrayEstudiantes == null) {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
     }
@@ -50,23 +50,23 @@ function doValidate(event) {
     let carnet = elements.namedItem("carnet");
     let apellidos = elements.namedItem("apellidos");
     let nombre = elements.namedItem("nombre");
-    
+
     let error = false;
-    
+
     error = isBlank(carnet);
     error = isBlank(nombre);
     error = isBlank(apellidos);
 
-    if(error)
+    if (error)
         event.preventDefault();
 }
 
-function isBlank(element) {    
+function isBlank(element) {
     element.classList.remove("invalid");
-	if (element.value.length == 0){
-		element.classList.add("invalid");
-		return true;
-	}
+    if (element.value.length == 0) {
+        element.classList.add("invalid");
+        return true;
+    }
 }
 
 function loadPersonas() {
@@ -84,7 +84,9 @@ function doSubmit() {
     arrayEstudiantes.push(estudiante);
 
     Storage.store("Estudiantes", arrayEstudiantes);
-    listEstudiantes(arrayEstudiantes);
+    
+    let listado = document.getElementById("listado");
+    listEstudiante(listado, estudiante);
 
     document.getElementById("formulario").reset();
 }
@@ -92,7 +94,7 @@ function doSubmit() {
 function listEstudiantes(arrayEstudiantes) {
     let listado = document.getElementById("listado");
     listado.innerHTML = "";
-    for(let i in arrayEstudiantes) {
+    for (let i in arrayEstudiantes) {
         listEstudiante(listado, arrayEstudiantes[i]);
     }
 }
@@ -100,7 +102,7 @@ function listEstudiantes(arrayEstudiantes) {
 function listEstudiante(listado, estudiante) {
     let tr = document.createElement("tr");
     let td;
-    
+
     td = document.createElement("td");
     td.appendChild(document.createTextNode(estudiante.carnet));
     tr.appendChild(td);
@@ -116,17 +118,51 @@ function listEstudiante(listado, estudiante) {
     let input;
     let examenes = estudiante.examenes.arrayExamenes;
 
-    for(let i in examenes)
-        console.log(examenes[i]);
-
     td = document.createElement("td");
-    input = "<input type='text' name='examen1' id='examen1'>"
-    td.appendChild(document.createTextNode(estudiante.nombre));
+    input = "<input type='text' name='examen1' id='examen1' value='" + examenes[0] + "'>";
+    td.innerHTML = input;
     tr.appendChild(td);
 
+    td = document.createElement("td");
+    input = "<input type='text' name='examen2' id='examen2' value='" + examenes[1] + "'>";
+    td.innerHTML = input;
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    input = "<input type='text' name='examen3' id='examen3' value='" + examenes[2] + "'>";
+    td.innerHTML = input;
+    tr.appendChild(td);
+
+    var id = estudiante.carnet;
+    td = document.createElement("td");
+    label = "<label class='promedio' id='" + id + "' for='promedio'></label>";
+    td.innerHTML = label;
+    tr.appendChild(td);
 
     listado.appendChild(tr);
-
+    inputExamListener(estudiante);
+    setPromedio(estudiante);
 }
 
-document.addEventListener("DOMContentLoaded",pageLoad)
+function inputExamListener(estudiante) {
+    let element;
+    element = document.getElementById("examen1");
+    addListener(element, estudiante, 0);
+    element = document.getElementById("examen2");
+    addListener(element, estudiante, 1);
+    element = document.getElementById("examen3");
+    addListener(element, estudiante, 2);
+}
+function addListener(element, estudiante, i) {
+    element.addEventListener("blur", (event) => {
+         estudiante.examenes.arrayExamenes[i] = parseFloat(event.target.value);
+         setPromedio(estudiante);
+    })
+}
+function setPromedio(estudiante) {
+    let id = estudiante.carnet;
+    label = document.getElementById(id);
+    label.innerHTML = estudiante.examenes.getPromedio();
+}
+
+document.addEventListener("DOMContentLoaded", pageLoad)
