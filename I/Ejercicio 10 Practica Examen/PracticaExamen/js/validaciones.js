@@ -204,6 +204,7 @@ function setPromedio(estudiante) {
     label = document.getElementById(id);
     label.innerHTML = estudiante.examenes.getPromedio();
     Storage.store("Estudiantes", arrayEstudiantes);
+    
 }
 
 document.addEventListener("DOMContentLoaded", pageLoad)
