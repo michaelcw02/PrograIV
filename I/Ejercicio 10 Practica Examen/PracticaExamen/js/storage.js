@@ -12,7 +12,7 @@ Storage = {
 
     retrieve: function (id) {
         let jsonObject = localStorage.getItem(id);
-        return (jsonObject === null) ? null : JSON.parse(jsonObject, this.reviver);
+        return (jsonObject === undefined) ? undefined : JSON.parse(jsonObject, this.reviver);
     },
     reviver: function (key, value) {
         if(value instanceof Object) {

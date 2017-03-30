@@ -1,8 +1,8 @@
 var arrayEstudiantes;
 function pageLoad(event) {
     addEventListeners();
-    loadList();
     loadSpaces();
+    loadList();
 }
 
 function loadSpaces() {
@@ -19,6 +19,7 @@ function loadSpaces() {
 }
 
 function loadList() {
+    arrayEstudiantes = Storage.retrieve("Estudiantes");
     if (arrayEstudiantes == null) {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
@@ -67,11 +68,6 @@ function isBlank(element) {
         element.classList.add("invalid");
         return true;
     }
-}
-
-function loadPersonas() {
-    var array = Storage.retrieve("Personas");
-    console.log(array);
 }
 
 function doSubmit() {
@@ -162,16 +158,19 @@ function inputExamListener(estudiante) {
     element = document.getElementById(id);
     addListener(element, estudiante, 2);
 }
+
 function addListener(element, estudiante, i) {
     element.addEventListener("blur", (event) => {
          estudiante.examenes.arrayExamenes[i] = parseFloat(event.target.value);
          setPromedio(estudiante);
     })
 }
+
 function setPromedio(estudiante) {
     let id = estudiante.carnet.concat("Promedio");
     label = document.getElementById(id);
     label.innerHTML = estudiante.examenes.getPromedio();
+    Storage.store("Estudiantes", arrayEstudiantes);
 }
 
 document.addEventListener("DOMContentLoaded", pageLoad)
