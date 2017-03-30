@@ -117,23 +117,27 @@ function listEstudiante(listado, estudiante) {
 
     let input;
     let examenes = estudiante.examenes.arrayExamenes;
+    let id;
 
+    id = estudiante.carnet.concat("Examen1");
     td = document.createElement("td");
-    input = "<input type='text' name='examen1' id='examen1' value='" + examenes[0] + "'>";
+    input = "<input type='text' id='" + id +"' value='" + examenes[0] + "'>";
     td.innerHTML = input;
     tr.appendChild(td);
 
+    id = estudiante.carnet.concat("Examen2");
     td = document.createElement("td");
-    input = "<input type='text' name='examen2' id='examen2' value='" + examenes[1] + "'>";
+    input = "<input type='text' id='" + id +"' value='" + examenes[1] + "'>";
     td.innerHTML = input;
     tr.appendChild(td);
 
+    id = estudiante.carnet.concat("Examen3");
     td = document.createElement("td");
-    input = "<input type='text' name='examen3' id='examen3' value='" + examenes[2] + "'>";
+    input = "<input type='text' id='" + id +"' value='" + examenes[2] + "'>";
     td.innerHTML = input;
     tr.appendChild(td);
 
-    var id = estudiante.carnet;
+    id = estudiante.carnet.concat("Promedio");
     td = document.createElement("td");
     label = "<label class='promedio' id='" + id + "' for='promedio'></label>";
     td.innerHTML = label;
@@ -146,11 +150,16 @@ function listEstudiante(listado, estudiante) {
 
 function inputExamListener(estudiante) {
     let element;
-    element = document.getElementById("examen1");
+    let id;
+
+    id = estudiante.carnet.concat("Examen1");
+    element = document.getElementById(id);
     addListener(element, estudiante, 0);
-    element = document.getElementById("examen2");
+    id = estudiante.carnet.concat("Examen2");
+    element = document.getElementById(id);
     addListener(element, estudiante, 1);
-    element = document.getElementById("examen3");
+    id = estudiante.carnet.concat("Examen3");
+    element = document.getElementById(id);
     addListener(element, estudiante, 2);
 }
 function addListener(element, estudiante, i) {
@@ -160,7 +169,7 @@ function addListener(element, estudiante, i) {
     })
 }
 function setPromedio(estudiante) {
-    let id = estudiante.carnet;
+    let id = estudiante.carnet.concat("Promedio");
     label = document.getElementById(id);
     label.innerHTML = estudiante.examenes.getPromedio();
 }
