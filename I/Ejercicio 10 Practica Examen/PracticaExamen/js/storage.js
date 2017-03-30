@@ -1,8 +1,8 @@
 Storage = {
-    store: (id, object) => {
+    store: function (id, object) {
         return localStorage.setItem(id, JSON.stringify(object, this.replacer));
     },
-    replacer: (key, value) => {
+    replacer: function (key, value) {
         if(value instanceof Estudiante)
             value._class = "Estudiante";
         if(value instanceof Examenes)

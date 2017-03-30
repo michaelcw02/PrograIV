@@ -38,6 +38,9 @@ function addEventListeners() {
 
     let formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", doValidate);
+
+    let borrar = document.getElementById("borrar");
+    borrar.addEventListener("click", doBorrar);
 }
 
 function addFocusBlur(element) {
@@ -58,8 +61,15 @@ function doValidate(event) {
     error = isBlank(nombre);
     error = isBlank(apellidos);
 
-    if (error)
+    if (error) {
         event.preventDefault();
+        return;
+    }
+    
+    if(isRepeated(carnet)) {
+        window.alert("ESTE ESTUDIANTE YA EXISTE!");
+        event.preventDefault();
+    }
 }
 
 function isBlank(element) {
@@ -68,6 +78,28 @@ function isBlank(element) {
         element.classList.add("invalid");
         return true;
     }
+}
+
+function isRepeated(carnet) {
+    let index = arrayEstudiantes.findIndex( (est) => est.carnet === carnet.value );
+    return (index != -1)? true : false;
+}
+
+function doBorrar(event) {
+    if(!confirm("¿Estás seguro de querer borrar este estudiante?"))
+        return;
+    let carnet = document.getElementById("carnet").value;
+    let index = arrayEstudiantes.findIndex( (est) => est.carnet === carnet );
+    if(index != -1) {
+        arrayEstudiantes.splice(index, 1);
+        Storage.store("Estudiantes", arrayEstudiantes);
+        listEstudiantes(arrayEstudiantes);
+    }
+    document.getElementById("formulario").reset();
+}
+
+function findEst(carnet) {
+
 }
 
 function doSubmit() {
