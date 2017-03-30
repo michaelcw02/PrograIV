@@ -24,6 +24,7 @@ function loadList() {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
     }
+    console.log(arrayEstudiantes);
     listEstudiantes(arrayEstudiantes);
 }
 
