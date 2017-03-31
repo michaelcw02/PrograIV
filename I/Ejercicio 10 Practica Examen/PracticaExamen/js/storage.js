@@ -3,9 +3,9 @@ Storage = {
         return localStorage.setItem(id, JSON.stringify(object, this.replacer));
     },
     replacer: function (key, value) {
-        if(value instanceof Estudiante)
+        if (value instanceof Estudiante)
             value._class = "Estudiante";
-        if(value instanceof Examenes) {
+        if (value instanceof Examenes) {
             value.arrayExamenes = toString(value.arrayExamenes);
             value._class = "Examenes";
         }
@@ -17,13 +17,13 @@ Storage = {
         return (jsonObject == undefined) ? undefined : JSON.parse(jsonObject, this.reviver);
     },
     reviver: function (key, value) {
-        if(value instanceof Object) {
-            if(value._class === "Estudiante")
-                return new Estudiante(value.carnet, value.apellidos, value.nombre, value.examenes);
-            if(value._class === "Examenes") {
-                let array = toNumber(value.arrayExamenes);
-                return new Examenes(array);
-            }
+        if (value instanceof Object && value._class == "Estudiante") {
+            console.log(value.examenes);
+            return new Estudiante(value.carnet, value.apellidos, value.nombre, value.examenes);
+        }
+        if (value instanceof Object && value._class == "Examenes") {
+            let array = toNumber(value.arrayExamenes);
+            return new Examenes(array);
         }
         return value;
     }
@@ -31,13 +31,13 @@ Storage = {
 
 function toString(array) {
     var newArray = [];
-    for(let i = 0; i < array.length; i++)
+    for (let i = 0; i < array.length; i++)
         newArray.push(array[i].toString());
     return newArray;
 }
 function toNumber(array) {
     var newArray = [];
-    for(let i = 0; i < array.length; i++)
+    for (let i = 0; i < array.length; i++)
         newArray.push(parseFloat(array[i]));
     return newArray;
 }

@@ -20,6 +20,12 @@ function loadSpaces() {
 
 function loadList() {
     arrayEstudiantes = Storage.retrieve("Estudiantes");
+    for(let i in arrayEstudiantes) {
+        let array = arrayEstudiantes[i].examenes.arrayExamenes;
+    //    console.log(array);
+        let r = array[0] + array[1] + array[2];
+      //  console.log(r);
+    }
     if (arrayEstudiantes == null) {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
