@@ -24,7 +24,6 @@ function loadList() {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
     }
-    console.log(arrayEstudiantes);
     listEstudiantes(arrayEstudiantes);
 }
 
@@ -42,6 +41,9 @@ function addEventListeners() {
 
     let borrar = document.getElementById("borrar");
     borrar.addEventListener("click", doBorrar);
+
+    let clear = document.getElementById("clear");
+    clear.addEventListener("click", doClear);
 }
 
 function addFocusBlur(element) {
@@ -99,8 +101,8 @@ function doBorrar(event) {
     document.getElementById("formulario").reset();
 }
 
-function findEst(carnet) {
-
+function doClear(event) {
+    document.getElementById("formulario").reset();
 }
 
 function doSubmit() {

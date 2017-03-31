@@ -5,8 +5,10 @@ Storage = {
     replacer: function (key, value) {
         if(value instanceof Estudiante)
             value._class = "Estudiante";
-        if(value instanceof Examenes)
+        if(value instanceof Examenes) {
+            value.arrayExamenes = toString(value.arrayExamenes);
             value._class = "Examenes";
+        }
         return value;
     },
 
@@ -18,9 +20,24 @@ Storage = {
         if(value instanceof Object) {
             if(value._class === "Estudiante")
                 return new Estudiante(value.carnet, value.apellidos, value.nombre, value.examenes);
-            if(value._class === "Examenes")
-                return new Examenes(value.arrayExamenes);
+            if(value._class === "Examenes") {
+                let array = toNumber(value.arrayExamenes);
+                return new Examenes(array);
+            }
         }
         return value;
     }
+}
+
+function toString(array) {
+    var newArray = [];
+    for(let i = 0; i < array.length; i++)
+        newArray.push(array[i].toString());
+    return newArray;
+}
+function toNumber(array) {
+    var newArray = [];
+    for(let i = 0; i < array.length; i++)
+        newArray.push(parseFloat(array[i]));
+    return newArray;
 }
