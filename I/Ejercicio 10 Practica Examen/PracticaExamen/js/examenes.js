@@ -11,6 +11,6 @@ Examenes.prototype = {
         let suma = 0;
         for(var i in this.arrayExamenes)
             suma += parseFloat(this.arrayExamenes[i]);
-        return suma / this.arrayExamenes.length;
+        return (suma / this.arrayExamenes.length).toFixed(2);
     }
 }

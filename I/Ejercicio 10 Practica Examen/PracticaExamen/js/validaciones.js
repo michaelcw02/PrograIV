@@ -20,12 +20,6 @@ function loadSpaces() {
 
 function loadList() {
     arrayEstudiantes = Storage.retrieve("Estudiantes");
-    for(let i in arrayEstudiantes) {
-        let array = arrayEstudiantes[i].examenes.arrayExamenes;
-    //    console.log(array);
-        let r = array[0] + array[1] + array[2];
-      //  console.log(r);
-    }
     if (arrayEstudiantes == null) {
         arrayEstudiantes = [];
         Storage.store("Estudiantes", arrayEstudiantes);
@@ -176,7 +170,7 @@ function listEstudiante(listado, estudiante) {
 
     id = estudiante.carnet.concat("Promedio");
     td = document.createElement("td");
-    label = "<label class='promedio' id='" + id + "' for='promedio'></label>";
+    label = "<label class='centerText' id='" + id + "' for='promedio'></label>";
     td.innerHTML = label;
     tr.appendChild(td);
 
@@ -201,6 +195,8 @@ function inputExamListener(estudiante) {
 }
 
 function addListener(element, estudiante, i) {
+    addFocusBlur(element);
+    element.className += " centerText";
     element.addEventListener("blur", (event) => {
          estudiante.examenes.arrayExamenes[i] = parseFloat(event.target.value);
          setPromedio(estudiante);
