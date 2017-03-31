@@ -1,11 +1,5 @@
-function Examenes(arrayExamenes) {
-    this.Examenes(arrayExamenes);
-}
-function Examenes() {
-    let arrayExamenes = [];
-    arrayExamenes.push(0);
-    arrayExamenes.push(0);
-    arrayExamenes.push(0);
+
+function Examenes(arrayExamenes = [0, 0, 0]) {
     this.Examenes(arrayExamenes);
 }
 
@@ -16,7 +10,7 @@ Examenes.prototype = {
     getPromedio: function() {
         let suma = 0;
         for(var i in this.arrayExamenes)
-            suma += this.arrayExamenes[i];
+            suma += parseFloat(this.arrayExamenes[i]);
         return suma / this.arrayExamenes.length;
     }
 }

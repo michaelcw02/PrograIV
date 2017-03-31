@@ -18,7 +18,6 @@ Storage = {
     },
     reviver: function (key, value) {
         if (value instanceof Object && value._class == "Estudiante") {
-            console.log(value.examenes);
             return new Estudiante(value.carnet, value.apellidos, value.nombre, value.examenes);
         }
         if (value instanceof Object && value._class == "Examenes") {
