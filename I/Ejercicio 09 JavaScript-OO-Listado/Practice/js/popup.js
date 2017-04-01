@@ -36,6 +36,8 @@ function loadPopUpAcceptButton( toDo = undefined, objectToDo = undefined) {
             if(toDo !== undefined) {
                 if(objectToDo !== undefined)
                     toDo(objectToDo);
+                else
+                    toDo();
             }
         }
     );
