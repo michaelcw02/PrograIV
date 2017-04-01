@@ -2,7 +2,7 @@ var arrayPersonas;
 function pageLoad(event) {
     addEventListeners();
     loadSpaces();
-    loadPersonas();
+    loadTable();
 }
 
 function loadSpaces() {
@@ -88,8 +88,11 @@ function isBlank(element) {
 
 function loadPersonas() {
     arrayPersonas = Storage.retrieve("Personas");
-    if(arrayPersonas == undefined)
+    if(arrayPersonas == null) {
         arrayPersonas = [];
+        Storage.store("Personas", arrayPersonas);
+    }
+    console.log(arrayPersonas);
 }
 
 function doSubmit() {
@@ -107,13 +110,69 @@ function doSubmit() {
     let persona = new Persona(cedula, nombre, sexo, direccion);
     arrayPersonas.push(persona);
     Storage.store("Personas", arrayPersonas);
-    loadTable();
-    
+    listPersona(persona);
     document.getElementById("formulario").reset();
 }
 
 function loadTable() {
     loadPersonas();
+    arrayPersonas.forEach(listPersona);
+}
+function listPersona(persona) {
+    let table = document.getElementById("table-personas");
+    let tr = document.createElement("tr");
+    let td;
+    let item;
+
+    td = document.createElement("td");
+    item = persona.cedula;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    item = persona.nombre;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    item = persona.sex();
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    let direccion = persona.direccion;
+
+    td = document.createElement("td");
+    item = direccion.dir;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    item = direccion.canton;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    item = direccion.distrito;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    item = direccion.provincia;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+    
+    td = document.createElement("td");
+    item = undefined;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+    
+    td = document.createElement("td");
+    item = undefined;
+    td.appendChild(document.createTextNode(item));
+    tr.appendChild(td);
+
+    table.appendChild(tr);
 }
 
+//$(document).ready(pageLoad);
 document.addEventListener("DOMContentLoaded",pageLoad)
