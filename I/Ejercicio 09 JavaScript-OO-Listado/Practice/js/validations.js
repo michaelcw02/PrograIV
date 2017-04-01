@@ -180,8 +180,10 @@ function listPersona(persona) {
     item.alt = "Delete";
     item.title = "Delete";
     item.src = "images/glyphicons-208-remove.png";
-    addClickFunction(item, doDelete, persona);
-    td.appendChild(item);
+    anchor = makeAnchor("#", "Delete");
+    anchor.appendChild(item);
+    addClickFunction(anchor, confirmDelete, persona);
+    td.appendChild(anchor);
     tr.appendChild(td);
 
     table.appendChild(tr);
@@ -269,9 +271,22 @@ function doChange(persona) {
     loadTable();
 }
 
+function confirmDelete(persona) {
+    let title = "Delete!";
+    let message = "Are you sure you want to delete " + persona.cedula + ", " + persona.nombre + "?";
+    loadPopUp();
+    toPopUp(title, message);
+    loadPopUpAcceptButton(doDelete, persona);
+    showPopUp();
+}
 
 function doDelete(persona) {
-
+    var index = arrayPersonas.findIndex( (per) => per.cedula === persona.cedula );
+    if (index != -1) {
+        arrayPersonas.splice(index, 1);
+        Storage.store("Personas", arrayPersonas);
+        loadTable();
+    }
 }
 
 function makeAnchor(url, usedFor) {
