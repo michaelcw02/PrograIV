@@ -21,6 +21,7 @@ function loadPopUp() {
 	})
 }
 function toPopUp(title = "TITLE", message = "MESSAGE") {
+    clearPopUp();
     document.getElementById("popup-title").innerHTML = title;
 	document.getElementById("popup-message").innerHTML = message;
 }
@@ -41,4 +42,8 @@ function loadPopUpAcceptButton( toDo = undefined, objectToDo = undefined) {
             }
         }
     );
+}
+function clearPopUp() {
+    document.getElementById("overlay").style.display = '';
+	document.getElementById("popup").style.display = '';
 }
