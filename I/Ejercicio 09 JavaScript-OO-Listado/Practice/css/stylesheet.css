@@ -24,3 +24,16 @@ input[type="text"].nofocus {background-color: white;}
 .btn-radio:hover{
     background-color: #BBDEFB !important;
 }
+
+thead {
+    font-size: 25px;
+}
+td, th {
+    border: 5px solid lightgray; 
+}
+.table-condensed {
+    border: 5px solid lightgray;
+}
+#lista {
+    padding-top: 20px;
+}

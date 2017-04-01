@@ -108,4 +108,8 @@ function doSubmit() {
     document.getElementById("formulario").reset();
 }
 
+function loadList() {
+    
+}
+
 document.addEventListener("DOMContentLoaded",pageLoad)
