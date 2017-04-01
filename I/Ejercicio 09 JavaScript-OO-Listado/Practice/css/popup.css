@@ -1,0 +1,30 @@
+/**
+ * Pop It Up library used for popups by Michael Chen W.
+ * <p> michael.cw02@hotmail.com
+ * <p> https://github.com/michaelcw02
+ */
+ 
+.overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: lightgray;
+	z-index: 1;
+	opacity: .60;
+}
+.popup {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 5px;
+	border: 5px solid lightgray;
+	background-color: white;
+	z-index: 2;
+	text-align: center;
+}
