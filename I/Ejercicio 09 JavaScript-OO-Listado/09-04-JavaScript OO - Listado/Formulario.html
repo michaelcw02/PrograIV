@@ -12,6 +12,14 @@
 	<body>
 	<div id="formularioDiv" style="display: block;vertical-align:top;">
 		<form method="POST" name="formulario" id="formulario" action="javascript:doSubmit();">
+			<div class="overlay" id="overlay"></div>
+			<div class="popup" id="popup">
+				<h2 class="popup-title" id="popup-title">TITLE</h2>
+				<h3 class="popup-message" id="popup-message">MESSAGE</h3>
+				<div>
+					<button id="popup-button">Aceptar</button>
+				</div>
+			</div>
 			<table border=0 cellpadding=3 cellspacing=4 >
 				<tr><td colspan="2" class="titulo">Perfil</td></tr>
 				<tr><td class="etiqueta">Cedula</td><td><input type="text" name="cedula" id="cedula"></td></tr>

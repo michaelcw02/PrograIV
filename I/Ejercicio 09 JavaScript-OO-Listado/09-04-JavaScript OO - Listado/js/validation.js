@@ -8,6 +8,7 @@ function pageLoad(event){
 		Storage.store("personas",personas);
 	}
 	listPersonas(personas);
+	loadPopUp();
 }
 
 function addEventListeners() {
@@ -50,6 +51,21 @@ function validateInput(element) {
 		element.classList.add("invalid");
 		return true;
 	}
+}
+
+function loadPopUp() {
+	let button = document.getElementById("popup-button");
+	button.addEventListener("click", () => {
+		document.getElementById("overlay").style.display = 'none';
+		document.getElementById("popup").style.display = 'none';		
+	})
+}
+function toPopUp(title, message) {
+		document.getElementById("popup-title").innerText = title;
+		document.getElementById("popup-message").innerText = message;
+		
+		document.getElementById("overlay").style.display = 'block';
+		document.getElementById("popup").style.display = 'block';
 }
 
 function doValidate(event){
@@ -110,7 +126,7 @@ function doValidate(event){
 		var listado=document.getElementById("listado");
 		listPersona(listado,persona);
 	
-		window.alert("Data sent: "+persona.completo("-"));
+		toPopUp("Success!", "Data sent: " + persona.completo("-"));
     var formulario=document.getElementById("formulario");
     formulario.reset();	
   }

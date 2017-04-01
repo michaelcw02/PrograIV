@@ -46,3 +46,29 @@ table.grid tbody tr:nth-child(odd) {background: #ffece6;}
 table.grid tbody tr:nth-child(even) {background: #ffb399;}
 table.grid tbody tr:hover {background: #ff794d;}
 table.grid tbody tr td{border:inherit;}
+
+
+.overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: lightgray;
+	z-index: 1;
+	opacity: .50;
+}
+.popup {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 5px;
+	border: 5px solid lightgray;
+	background-color: white;
+	z-index: 2;
+	text-align: center;
+}
