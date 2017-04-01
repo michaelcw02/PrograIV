@@ -92,7 +92,6 @@ function loadPersonas() {
         arrayPersonas = [];
         Storage.store("Personas", arrayPersonas);
     }
-    console.log(arrayPersonas);
 }
 
 function doSubmit() {
@@ -162,16 +161,43 @@ function listPersona(persona) {
     tr.appendChild(td);
     
     td = document.createElement("td");
-    item = undefined;
-    td.appendChild(document.createTextNode(item));
+    item = document.createElement("img");
+    item.alt = "Edit";
+    item.title = "Edit";
+    item.src = "images/glyphicons-31-pencil.png";
+    addClickFunction(item, doEdit, persona);
+    td.appendChild(item);
     tr.appendChild(td);
     
     td = document.createElement("td");
-    item = undefined;
-    td.appendChild(document.createTextNode(item));
+    item = document.createElement("img");
+    item.alt = "Delete";
+    item.title = "Delete";
+    item.src = "images/glyphicons-208-remove.png";
+    addClickFunction(item, doDelete, persona);
+    td.appendChild(item);
     tr.appendChild(td);
 
     table.appendChild(tr);
+}
+
+/**
+ * Generic function 
+ * @param {Any Element in HTML} element 
+ * @param {Function to do} toDo 
+ * @param {Any other object that needs the function} object 
+ */
+function addClickFunction(element, toDo, object = undefined) {
+    element.addEventListener("click", (event) => {
+        (object !== undefined) ? toDo(object) : toDo();
+    })
+}
+
+function doEdit(persona) {
+    
+}
+function doDelete(persona) {
+
 }
 
 //$(document).ready(pageLoad);
