@@ -5,21 +5,38 @@
  */
 
 /**
- * This function have to be when the document loads.
+ * 
  */
 function loadPopUp() {
-	let button = document.getElementById("popup-button");
-	button.addEventListener("click", () => {
+	let btnAceptar = document.getElementById("popup-btn-aceptar");
+	btnAceptar.addEventListener("click", () => {
+		document.getElementById("overlay").style.display = 'none';
+		document.getElementById("popup").style.display = 'none';		
+	})
+	
+    let btnCancelar = document.getElementById("popup-btn-cancelar");
+	btnCancelar.addEventListener("click", () => {
 		document.getElementById("overlay").style.display = 'none';
 		document.getElementById("popup").style.display = 'none';		
 	})
 }
-function toPopUp(title, message) {
-		document.getElementById("popup-title").innerText = title;
-		document.getElementById("popup-message").innerText = message;
-        closePopUP();		
+function toPopUp(title = "TITLE", message = "MESSAGE") {
+    document.getElementById("popup-title").innerHTML = title;
+	document.getElementById("popup-message").innerHTML = message;
 }
-function closePopUp() {
+function showPopUp() {
     document.getElementById("overlay").style.display = 'block';
 	document.getElementById("popup").style.display = 'block';
+}
+
+function loadPopUpAcceptButton( toDo = undefined, objectToDo = undefined) {
+    let acceptBtn = document.getElementById("popup-btn-aceptar");
+    document.getElementById('popup-btn-aceptar').addEventListener("click",
+        function(event) {
+            if(toDo !== undefined) {
+                if(objectToDo !== undefined)
+                    toDo(objectToDo);
+            }
+        }
+    );
 }

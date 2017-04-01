@@ -3,6 +3,7 @@ function pageLoad(event) {
     addEventListeners();
     loadSpaces();
     loadTable();
+    loadPopUp();
 }
 
 function loadSpaces() {
@@ -115,6 +116,7 @@ function doSubmit() {
 
 function loadTable() {
     loadPersonas();
+    document.getElementById('table-personas').innerHTML = "";
     arrayPersonas.forEach(listPersona);
 }
 function listPersona(persona) {
@@ -160,13 +162,17 @@ function listPersona(persona) {
     td.appendChild(document.createTextNode(item));
     tr.appendChild(td);
     
+    let anchor;
+    
     td = document.createElement("td");
     item = document.createElement("img");
     item.alt = "Edit";
     item.title = "Edit";
     item.src = "images/glyphicons-31-pencil.png";
-    addClickFunction(item, doEdit, persona);
-    td.appendChild(item);
+    anchor = makeAnchor("#", "Edit");
+    anchor.appendChild(item);
+    addClickFunction(anchor, doEdit, persona);
+    td.appendChild(anchor);
     tr.appendChild(td);
     
     td = document.createElement("td");
@@ -194,10 +200,88 @@ function addClickFunction(element, toDo, object = undefined) {
 }
 
 function doEdit(persona) {
+    let title = "Editar!";
+    let message = "";
+    let aString;
+
+    message += "<div class='container-fluid'>";
+
+        message += "<div class='row'>";
+            message += "<div class='form-group text-center'>";
+                message += "<div class='col-sm-offset-3 col-sm-2'>Nombre:</div>"
+                aString = persona.nombre;
+                message += "<div class='col-sm-4'><input type='text' id='popup-nombre' class='form-control' value='"+aString+"'></div>"
+            message += "</div>";
+        message += "</div>";
+
+        message += "<div class='row'>";
+            message += "<div class='form-group text-center'>";
+                message += "<div class='col-sm-offset-3 col-sm-2'>Direccion:</div>"
+                aString = persona.direccion.dir;
+                message += "<div class='col-sm-4'><input type='text' id='popup-dir' class='form-control' value='"+aString+"'></div>"
+            message += "</div>";
+        message += "</div>";
+
+        message += "<div class='row'>";
+            message += "<div class='form-group text-center'>";
+                message += "<div class='col-sm-offset-3 col-sm-2'>Canton:</div>"
+                aString = persona.direccion.canton;
+                message += "<div class='col-sm-4'><input type='text' id='popup-canton' class='form-control' value='"+aString+"'></div>"
+            message += "</div>";
+        message += "</div>";
+
+        message += "<div class='row'>";
+            message += "<div class='form-group text-center'>";
+                message += "<div class='col-sm-offset-3 col-sm-2'>Distrito:</div>"
+                aString = persona.direccion.distrito;
+                message += "<div class='col-sm-4'><input type='text' id='popup-distrito' class='form-control' value='"+aString+"'></div>"
+            message += "</div>";
+        message += "</div>";
+
+        message += "<div class='row'>";
+            message += "<div class='form-group text-center'>";
+                message += "<div class='col-sm-offset-3 col-sm-2'>Provincia:</div>"
+                aString = persona.direccion.provincia;
+                message += "<div class='col-sm-4'><input type='text' id='popup-provincia' class='form-control' value='"+aString+"'></div>"
+            message += "</div>";
+        message += "</div>";
     
+    message += "</div>";
+
+    loadPopUp();
+    toPopUp(title, message);
+    loadPopUpAcceptButton(doChange, persona);
+    showPopUp();
 }
+
+function doChange(persona) {
+    let newPersona = arrayPersonas.find( (per) => per.cedula === persona.cedula );
+    newPersona.nombre = document.getElementById("popup-nombre").value;
+    let dir = document.getElementById("popup-dir").value;
+    let canton = document.getElementById("popup-canton").value;
+    let distrito = document.getElementById("popup-distrito").value;
+    let provincia = document.getElementById("popup-provincia").value;
+
+    let direccion = new Direccion(dir, canton, distrito, provincia);
+    newPersona.direccion = direccion;
+    console.log(newPersona);
+    Storage.store("Personas", arrayPersonas);
+    loadTable();
+}
+
+
 function doDelete(persona) {
 
+}
+
+function makeAnchor(url, usedFor) {
+    let anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.classList.add("anchor");
+    anchor.setAttribute("data-togle", "tooltip");
+    anchor.setAttribute("data-placement", "botton");
+    anchor.title = usedFor;
+    return anchor;
 }
 
 //$(document).ready(pageLoad);

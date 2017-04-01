@@ -43,3 +43,9 @@ td, th {
 .table-hover > tbody > tr:hover {
   background-color: #388E3C;
 }
+
+.anchor {
+    position: relative;
+    width: 100%;
+    height: auto;
+}

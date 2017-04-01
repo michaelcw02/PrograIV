@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset='UTF-8'>
         <title>Registro de un cliente</title>
         
         <!--FRAMEWORKS-->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <link rel='stylesheet' href='css/bootstrap.css'>
+        <script type='text/javascript' src='js/jquery-3.2.0.js'></script>
+        <script type='text/javascript' src='js/bootstrap.js'></script>
 
         <!-- OWN FRAMEWORK - POP IT UP - -->
-        <link rel="stylesheet" href="css/popup.css">
-        <script type="text/javascript" src="js/popup.js"></script>
+        <link rel='stylesheet' href='css/popup.css'>
+        <script type='text/javascript' src='js/popup.js'></script>
         
         <!-- CUSTOM -->
-        <link rel="stylesheet" href="css/stylesheet.css">
-        <script type="text/javascript" src="js/validations.js"></script>
-        <script type="text/javascript" src="js/direccion.js"></script>
-        <script type="text/javascript" src="js/persona.js"></script>
-        <script type="text/javascript" src="js/storage.js"></script>
+        <link rel='stylesheet' href='css/stylesheet.css'>
+        <script type='text/javascript' src='js/validations.js'></script>
+        <script type='text/javascript' src='js/direccion.js'></script>
+        <script type='text/javascript' src='js/persona.js'></script>
+        <script type='text/javascript' src='js/storage.js'></script>
     </head>
 
 	<body>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-offset-3 col-sm-6"><h2 class="title text-center">Perfil</h2></div>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-sm-offset-3 col-sm-6'><h2 class='title text-center'>Perfil</h2></div>
             </div>
 
-            <form action="javascript:doSubmit();" method="POST" id="formulario">
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Cedula:</div>
-                        <div class="col-sm-4"><input type="text" id="cedula" class="form-control"></div>
+            <form action='javascript:doSubmit();' method='POST' id='formulario'>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Cedula:</div>
+                        <div class='col-sm-4'><input type='text' id='cedula' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Nombre:</div>
-                        <div class="col-sm-4"><input type="text" id="nombre" class="form-control"></div>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Nombre:</div>
+                        <div class='col-sm-4'><input type='text' id='nombre' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 title">Sexo:</div>
-                        <div class="col-sm-4">
-                            <div class="btn-group radio" data-toggle="buttons">
-                                <label class="btn btn-default btn-radio" id="lblMasc">
-                                    <input type="radio" name="sexo" id="sexMasc" value="M">
-                                    <img src="images/glyphicons-4-user.png" alt="Male">
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 title'>Sexo:</div>
+                        <div class='col-sm-4'>
+                            <div class='btn-group radio' data-toggle='buttons'>
+                                <label class='btn btn-default btn-radio' id='lblMasc'>
+                                    <input type='radio' name='sexo' id='sexMasc' value='M'>
+                                    <img src='images/glyphicons-4-user.png' alt='Male'>
                                     Male
                                 </label>
-                                <label class="btn btn-default btn-radio" id="lblFem">
-                                    <input type="radio" name="sexo" id="sexFem" value="F">
-                                    <img src="images/glyphicons-5-girl.png" alt="Female">
+                                <label class='btn btn-default btn-radio' id='lblFem'>
+                                    <input type='radio' name='sexo' id='sexFem' value='F'>
+                                    <img src='images/glyphicons-5-girl.png' alt='Female'>
                                     Female
                                 </label>
                             </div>
@@ -63,37 +63,37 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Direccion:</div>
-                        <div class="col-sm-4"><input type="text" id="direccion" class="form-control"></div>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Direccion:</div>
+                        <div class='col-sm-4'><input type='text' id='direccion' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Canton:</div>
-                        <div class="col-sm-4"><input type="text" id="canton" class="form-control"></div>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Canton:</div>
+                        <div class='col-sm-4'><input type='text' id='canton' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Distrito:</div>
-                        <div class="col-sm-4"><input type="text" id="distrito" class="form-control"></div>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Distrito:</div>
+                        <div class='col-sm-4'><input type='text' id='distrito' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="form-group text-center">
-                        <div class="col-sm-offset-3 col-sm-2 text-center title">Provincia:</div>
-                        <div class="col-sm-4"><input type="text" id="provincia" class="form-control"></div>
+                <div class='row'>
+                    <div class='form-group text-center'>
+                        <div class='col-sm-offset-3 col-sm-2 text-center title'>Provincia:</div>
+                        <div class='col-sm-4'><input type='text' id='provincia' class='form-control'></div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <input type="submit" class="btn btn-primary" id="submit">
+                <div class='row'>
+                    <div class='col-md-12 text-center'>
+                        <input type='submit' class='btn btn-primary' id='submit'>
                     </div>
                 </div>
             </form>
@@ -101,9 +101,9 @@
 
         <hr>
 
-        <div class="container" id="lista">
-            <div class="col-sm-offset-1 table-responsive">
-                <table class="table-condensed table-hover">
+        <div class='container' id='lista'>
+            <div class='col-sm-offset-1 table-responsive'>
+                <table class='table-condensed table-hover'>
                     <thead>
                         <tr>
                             <th>Cedula</th>
@@ -117,19 +117,22 @@
                             <th>. . .</th>
                         </tr>
                     </thead>
-                    <tbody id="table-personas">
+                    <tbody id='table-personas'>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <!-- POP UP -->
-        <div class="overlay" id="overlay"></div>
-        <div class="popup" id="popup">
-            <h2 class="popup-title" id="popup-title">TITLE</h2>
-            <h3 class="popup-message" id="popup-message">MESSAGE</h3>
+        <div class='overlay' id='overlay'></div>
+        <div class='popup' id='popup'>
+            <h2 class='popup-title' id='popup-title'>TITLE</h2>
+            <br>
+            <div class='popup-message' id='popup-message'>MESSAGE</div>
+            <br>
             <div>
-                <button id="popup-button">Aceptar</button>
+                <button id='popup-btn-aceptar'>Aceptar</button>
+                <button id='popup-btn-cancelar'>Cancelar</button>
             </div>
         </div>
 	</body>
