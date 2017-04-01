@@ -1,4 +1,4 @@
-var arrayPersonas = [];
+var arrayPersonas;
 function pageLoad(event) {
     addEventListeners();
     loadSpaces();
@@ -13,6 +13,7 @@ function loadSpaces() {
     let distrito = document.getElementById("distrito");
     let provincia = document.getElementById("provincia");
 
+    document.getElementById("sexMasc").checked = true;
     cedula.value = "116290538";
     nombre.value = "Michael Chen W.";
     dir.value = "25 mts Este de la Plaza";
@@ -86,30 +87,33 @@ function isBlank(element) {
 }
 
 function loadPersonas() {
-    var array = Storage.retrieve("Personas");
-    console.log(array);
+    arrayPersonas = Storage.retrieve("Personas");
+    if(arrayPersonas == undefined)
+        arrayPersonas = [];
 }
 
 function doSubmit() {
     let cedula = document.getElementById("cedula").value;
     let nombre = document.getElementById("nombre").value;
-    let sexMasc = document.getElementById("sexMasc").value;
+    let sexMasc = document.getElementById("sexMasc");
+    let sexFem = document.getElementById("sexFem");
     let sexo = (sexMasc.checked) ? "M" : "F";
     let dir = document.getElementById("direccion").value;
     let canton = document.getElementById("canton").value;
     let distrito = document.getElementById("distrito").value;
     let provincia = document.getElementById("provincia").value;
 
-    var direccion = new Direccion(dir, canton, distrito, provincia);
-    var persona = new Persona(cedula, nombre, sexo, direccion);
+    let direccion = new Direccion(dir, canton, distrito, provincia);
+    let persona = new Persona(cedula, nombre, sexo, direccion);
     arrayPersonas.push(persona);
     Storage.store("Personas", arrayPersonas);
+    loadTable();
     
     document.getElementById("formulario").reset();
 }
 
-function loadList() {
-    
+function loadTable() {
+    loadPersonas();
 }
 
 document.addEventListener("DOMContentLoaded",pageLoad)

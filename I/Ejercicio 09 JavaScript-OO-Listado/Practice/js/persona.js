@@ -1,6 +1,6 @@
 
-function Persona(cedula, nombre, sexo, dir) {
-    this.Persona(cedula, nombre, sexo, dir);
+function Persona(cedula, nombre, sexo, direccion) {
+    this.Persona(cedula, nombre, sexo, direccion);
 }
 function sex() {
     if(this.sexo === "M")
@@ -11,11 +11,11 @@ function sex() {
 }
 
 Persona.prototype = {
-    Persona: function (cedula, nombre, sexo, dir) {
+    Persona: function (cedula, nombre, sexo, direccion) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.sexo = sexo;
-        this.dir = dir;
+        this.direccion = direccion;
     },
 /*    toString: function() {
         return  this.cedula + ": " + this.nombre + " is " + sex() + " and lives in " + this.dir.toString();
