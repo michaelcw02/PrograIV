@@ -1,0 +1,94 @@
+body {
+    font-size: 15px;
+}
+.container {
+    margin-top: 20px;
+}
+h3 {
+    margin: 0px;
+}
+h5 {
+    
+}
+.centerText {
+    text-align: center;
+}
+
+.etiqueta {
+    background-color: #8BC34A;
+    margin: 0px;
+}
+
+table {
+    margin: 0;
+    padding: 1px;
+    border: 1px solid black;
+}
+.radioRow,
+.radioRow td,
+.bottonRow {
+    background-color: #8BC34A; 
+}
+.bottonRow span {
+    font-size: 30px;
+    background-color: white;
+}
+
+.boton {
+    font-size: 15px;
+    border-radius: 15%;
+}
+.radio {
+    text-align: right;
+}
+.radioAns {
+    text-align: center;
+}
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.tableBotton {
+    border: 0px;
+    background-color: #8BC34A;
+}
+.puntosObt {
+    background-color: white;
+    font-size: 30px;
+}
+
+/*grid*/
+table.grid{
+    border:1px solid black; 
+    border-collapse: collapse;
+}
+table.grid thead tr {
+    border:1px solid black; 
+    background-color: #8BC34A; 
+}
+table.grid thead tr th{
+    border:inherit;
+}
+table.grid tbody tr{
+    border-bottom:1px solid black; 
+    background: #99ff99;
+}
+table.grid tbody tr:nth-child(odd) {
+    background: #A5D6A7;
+}
+table.grid tbody tr:nth-child(even) {
+    background: #66BB6A;
+}
+table.grid tbody tr:hover {
+    background: #80DEEA;
+}
+table.grid tbody tr td{
+    border:inherit;
+}
+
+
+input[type="text"].focus {background-color: #FFCCBC;}
+input[type="text"].nofocus {background-color: white;}
+.invalid {
+    box-shadow: 0 0 5px 1px #E53935;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Examen Progra IV</title>
+
+    <!-- CUSTOM -->
+    <link rel='stylesheet' href='css/stylesheet.css'>
+    <script type='text/javascript' src='js/validaciones.js'></script>
+    <script type='text/javascript' src='js/pregunta.js'></script>
+    <script type='text/javascript' src='js/respuestas.js'></script>
+    <script type='text/javascript' src='js/storage.js'></script>
+
+</head>
+
+<body>
+    <div class='container'>
+        <form action='javascript:doSubmit();' method='POST' id='formulario'>
+            <table border=0 cellpadding=3 cellspacing=4>
+                <tr>
+                    <td colspan='4' class='etiqueta centerText'>
+                        <h3>Preguntas:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregunta:</td>
+                    <td><input type='text' name='pregunta' id='pregunta'></td>
+                </tr>
+                <tr>
+                    <td colspan='4' class='etiqueta centerText'>
+                        <h3>Opciones:</h3>
+                    </td>
+                </tr>
+                
+                <tr class='radioRow'>
+                    <td class='radio'><input type='radio' name='options' value='A' id='radioA'>A</td>
+                    <td><input type='text' name='respuestas' id='respuestaA'></td>
+                </tr>
+                
+                <tr class='radioRow'>
+                    <td class='radio'><input type='radio' name='options' value='B' id='radioB'>B</td>
+                    <td><input type='text' name='respuestas' id='respuestaB'></td>
+                </tr>
+                
+                <tr class='radioRow'>
+                    <td class='radio'><input type='radio' name='options' value='C' id='radioC'>C</td>
+                    <td><input type='text' name='respuestas' id='respuestaC'></td>
+                </tr>
+                
+                <tr class='radioRow'>
+                    <td class='radio'><input type='radio' name='options' value='D' id='radioD'>D</td>
+                    <td><input type='text' name='respuestas' id='respuestaD'></td>
+                </tr>
+
+                <tr class='buttonLine'>
+                    <td colspan='4'>
+                        <input class='boton' type='submit' value='Registrar'>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <hr>
+
+    </div>
+
+    <div class='container'>
+        <table class='grid'>
+            <thead>
+                <tr>
+                    <th>Pregunta</th>
+                    <th colspan="4">Opciones</th>
+                </tr>
+            </thead>
+            <tbody id='listado'>
+
+            </tbody>
+        </table>
+        <table class="tableBotton">
+            <thead>
+                <tr>
+                    <th>Puntos Obtenidos: </th>
+                    <th class='puntosObt' id='puntosObt'>0</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+
+</html>
