@@ -1,1 +1,12 @@
 WampServer64
+
+HIbernate 4.3.x
+
+MySQL JDBC Driver
+
+
+hibernate needs to files
+-config
+-reverse engineering
+-mapping, this mapping file depends on the config file
+-HibernateUtils
