@@ -72,6 +72,6 @@ public class HibernateUtil {
     public void setTransac(Transaction transac) {
         this.transac = transac;
     }
-    
+    ///......
     
 }
