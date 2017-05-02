@@ -162,7 +162,7 @@
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Mantenimiento Personas</a></li>
-                                    <li><a href="#">Mantenimiento Teléfonos</a></li>
+                                    <li><a href="TelefonosJSP.jsp">Mantenimiento Teléfonos</a></li>
                                     <li><a href="#">Mantenimiento Direcciones</a></li>
                                     <li class="divider"></li>
                                     <li><a href="Logout">Cerrar Sesión</a></li>
@@ -191,7 +191,7 @@
                                     <p><b>Buscar por nombre de la persona:</b></p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="email" class="form-control" id="email" placeholder="Digite el nombre de la persona">
+                                    <input type="email" class="form-control" id="text" placeholder="Digite el nombre de la persona">
                                 </div>
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-info centered" data-toggle="modal" data-target="#myModalFormulario" id="btMostarForm">

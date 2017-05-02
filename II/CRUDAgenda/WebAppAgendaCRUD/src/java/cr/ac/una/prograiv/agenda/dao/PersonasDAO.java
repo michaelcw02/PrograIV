@@ -50,12 +50,6 @@ public class PersonasDAO extends HibernateUtil implements IBaseDAO<Personas, Int
         return o;
     }
     
-    
-    
-    
-    
-    
-
     @Override
     public void delete(Personas o) {
         try {

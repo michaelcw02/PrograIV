@@ -13,7 +13,10 @@ import java.util.List;
  * @author chgari
  */
 public class TelefonosBL extends BaseBL implements IBaseBL<Telefonos, Integer>{
-
+    
+    public TelefonosBL() {
+        super();
+    }
     @Override
     public void save(Telefonos o) {
         this.getDao(o.getClass().getName()).save(o);
