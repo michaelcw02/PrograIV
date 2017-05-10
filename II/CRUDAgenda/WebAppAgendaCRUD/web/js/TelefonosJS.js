@@ -30,7 +30,7 @@ $(document).ready( function () {
 });
 
 function consultarTelefonos() {
-        mostrarModal("myModal", "Espere por favor..", "Consultando la información de telefonos en la base de datos");
+    mostrarModal("myModal", "Espere por favor..", "Consultando la información de telefonos en la base de datos");
     //Se envia la información por ajax
     $.ajax({
         url: 'TelefonosServlet',
@@ -44,7 +44,6 @@ function consultarTelefonos() {
             dibujarTabla(data);
             // se oculta el modal esta funcion se encuentra en el utils.js
             ocultarModal("myModal");
-
         },
         type: 'POST',
         dataType: "json"

@@ -43,14 +43,19 @@ public class TelefonosServlet extends HttpServlet {
             Thread.sleep(1000);
             
             HttpSession session = request.getSession();
-            
+            System.out.println(request);
+                    
             String accion = request.getParameter("accion");
             switch (accion) {
                 case "consultarTelefonos":
                     json = new Gson().toJson(telBL.findAll(Telefonos.class.getName()));
                     out.print(json);
                     break;
+                default:
+                    out.print("E~No se indico la acción que se desea realizare");
+                    break;
             }
+            
         
         } catch (NumberFormatException e) {
             out.print("E~" + e.getMessage());
