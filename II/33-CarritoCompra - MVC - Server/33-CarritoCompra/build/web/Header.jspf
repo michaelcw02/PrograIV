@@ -1,0 +1,54 @@
+<%@ page import="productos.model.Usuario" %>
+<%@ page import="productos.model.Cliente" %>
+<%@page errorPage="ErrorSeguridad.jsp" %>
+<div id="header" style="line-height:60px;  background:red;">
+    <div id="logo" style="height:60px; display: inline-flex; align-items: center; justify-content: start; font-family:Papyrus,fantasy; font-size:35px; font-weight:700; color:white;margin-left:5px;">
+            Super Tienda 
+    </div>
+    <div id="links" style="height:60px;  margin-right: 10px; display: inline-flex; align-items: center; justify-content: end; float:right;">    
+        <div id="productos" style=""> 
+                    <a href="ListProducts.jsp" title="Buscar productos">
+                            <div style="width: 50px; height:50px; background-image: url(images/buscar.png); background-repeat: no-repeat; background-size:contain;"></div>
+                    </a>
+            </div>
+
+        <div id="carrito" style=""> 
+                <a href="ShowCarrito.jsp" title="Ver carrito">
+                        <div style="width: 50px; height:50px; background-image: url(images/carrito.png); background-repeat: no-repeat; background-size:contain;"></div>
+                </a>
+        </div>
+        <% Usuario user = (Usuario) request.getSession().getAttribute("user"); %>
+
+        <% if (user==null){%>        
+            <div id="login" style=""> 
+                    <a href="Login.jsp" title="Login">
+                            <div style="width: 30px; height:30px; background-image: url(images/login.png); background-repeat: no-repeat; background-size:contain;"></div>
+                    </a>
+            </div>
+        <%}%> 
+        
+        <%   if (user!=null){%>
+            <div id="user" style="font-family:Papyrus,fantasy; font-size:15px; font-weight:700; color:white;">
+                <%=user.getId()%>
+            </div> 
+            <% if(user.getTipo()==1){ // client %>
+                <div id="client" style="font-family:Papyrus,fantasy; font-size:15px; font-weight:700; color:white;">
+                    <%=( (Cliente) request.getSession().getAttribute("client")).getNombre() %>
+                </div> 
+            <%}%>
+            <% if(user.getTipo()==2){ // manager %>
+                <div id="manager" style=""> 
+                        <a href="ManagerMenu.jsp" title="Menu">
+                                <div style="width: 30px; height:30px; background-image: url(images/managerMenu.png); background-repeat: no-repeat; background-size:contain;"></div>
+                        </a>
+                </div>
+            <%}%>   
+            
+            <div id="logout"  style=""> 
+                    <a href="ProductosService?action=userLogout" title="Logout">
+                            <div style="width: 30px; height:30px;  background-image: url(images/logout.png); background-repeat: no-repeat; background-size:contain;"></div>
+                    </a>
+            </div>
+        <%}%>
+    </div>
+</div>
