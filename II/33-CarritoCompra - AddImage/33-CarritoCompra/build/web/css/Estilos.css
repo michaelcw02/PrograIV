@@ -1,0 +1,58 @@
+﻿TABLE.GRID, TABLE.GRID TR TH, TABLE.GRID TR TD {border:1px solid black;}
+TABLE.GRID {border-collapse: collapse;}
+TABLE.GRID TR TD {background-image: url(../images/background.jpg);  } 
+
+button{
+  color: #fff;
+  background-color: #6496c8;
+  text-transform: uppercase;
+  border: none;
+}
+
+button:hover{
+  background-color: #346392;
+} 
+
+.overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	opacity:.50;
+}
+.popup {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 10px solid lightgray;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+}
+
+hr {
+width: 95%;
+height: 1px;
+margin-left: auto;
+margin-right: auto;
+background-color:#6496c8;
+color:#6496c8;
+border: 0 none;
+}
+
+body {
+	background-image: url(../images/background.jpg);
+}
+
+label{
+  color: #fff;
+
+}
