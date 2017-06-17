@@ -1,0 +1,36 @@
+<%--<%@ page import="jrairline.model.Usuario" %> 
+<%@ page import="jrairline.model.Cliente" %>
+<%@page errorPage="ErrorSeguridad.jsp" %>--%>
+
+ <%@page import="preguntas.model.Usuario"%>
+<%
+    Usuario user = (Usuario) request.getSession().getAttribute("user"); 
+    String id = "";
+    if(user != null){
+        id = user.getId();
+    }
+
+%>
+
+<div id="header" >
+          <h1><b>Questions</b></h1>
+        
+          <%   if (user==null){%>
+           <span class="opciones"><a href="Login.jsp">Login</a></span>
+            <%}%> 
+          <%   if (user!=null){%>
+          <span class="opciones"><input type="button" value="Logout" onclick="logout();return false;"></span>
+            <%}%> 
+            <span class="opciones"><label><%=id %></label></span>
+</div>
+
+<script>
+    function logout(){
+           Proxy.userLogout(
+                function(){
+                    sessionStorage.removeItem("Cart");
+                    document.location="Login.jsp";
+               });
+    
+}
+</script>
