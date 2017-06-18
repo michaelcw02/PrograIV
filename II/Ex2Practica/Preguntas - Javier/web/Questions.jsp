@@ -141,7 +141,7 @@
 		controller = new Controller(model,window);
 
             }
-             function listPreguntas() {
+            function listPreguntas() {
                 var preguntas = model.preguntasBuscadas;
                 var listado = document.getElementById("listado");
                listado.innerHTML="";

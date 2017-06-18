@@ -6,7 +6,7 @@ Proxy.productDelete = function(product,callBack){
     url="/33-CarritoCompra/ProductosService?action=productDelete";
     AJAX_req.open( "POST", url, true );
     AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var callBackConstructor= function(productParameter){ 
+    var callBackConstructor = function(productParameter){ 
             return function(){
                 if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
                     callBack(productParameter);
